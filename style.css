@@ -205,10 +205,10 @@ nav li a img {
 
 
 /* Адаптивность */
-@media (max-width: 600px) {
+@media (max-width: 650px) {
     nav li a {
         font-size: 14px;
-        width: 70px;
+        width: 100px;
     }
 
     nav li a img {
