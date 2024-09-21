@@ -1,6 +1,4 @@
-/* style.css */
-
-/* Сброс стилей */
+/* Общие стили */
 * {
     margin: 0;
     padding: 0;
@@ -9,35 +7,43 @@
 }
 
 body {
-    background: linear-gradient(135deg, #1A1A1D, #313131); /* легкий градиент фона */
+    background: linear-gradient(135deg, #1A1A1D, #313131);
     color: #2c3e50;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     min-height: 100vh;
-}
-
-/* Контейнер */
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
+    padding: 0 20px;
 }
 
 /* Стили для header */
 header {
-    background: linear-gradient(135deg, #222831, #393E46); /* Легкий градиент фона */
+    background: linear-gradient(135deg, #222831, #393E46);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 15px;
-    position: fixed;
-    top: 0;
-    width: 100%;
+    width: 500px; /* Полная ширина */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 1000; /* Чтобы шапка была поверх всего */
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    position: fixed; /* Закрепляем хедер */
+    top: 15px; /* Отступ сверху */
+    z-index: 1000; /* Чтобы хедер был поверх всего */
 }
+
+/* Контейнер для всего */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Центрируем содержимое */
+    width: 100%; /* Полная ширина */
+    max-width: 500px; /* Ограничиваем ширину */
+    margin-top: 80px; /* Отступ сверху для центрального расположения */
+}
+
 
 .header-content {
     display: flex;
@@ -52,7 +58,6 @@ header {
     border-radius: 50%;
     margin-right: 10px;
 }
-
 
 .header-text {
     flex-grow: 1;
@@ -72,102 +77,118 @@ header {
 
 /* Кнопка лидеров */
 #leaderboard-btn {
-    background: linear-gradient(90deg, #00aaff, #0088cc); /* Градиент кнопки */
+    background: linear-gradient(90deg, #00aaff, #0088cc);
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 17px;
     font-size: 16px;
     cursor: pointer;
+    box-shadow: 0 0 20px rgba(0, 150, 200, 1);
     transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 #leaderboard-btn:hover {
     background: linear-gradient(90deg, #007bb5, #006fa0);
     box-shadow: 0 4px 15px rgba(0, 150, 200, 0.5);
+    transform: translateY(-5px);
 }
 
-
-/* Основная часть с рулеткой */
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex-grow: 1;
-    padding: 140px;
-    position: relative;
+#leaderboard-btn:active {
+    transform: translateY(2px) scale(0.95);
 }
 
-/* Рамка для рулетки */
-.roulette {
-    background: linear-gradient(135deg, #222831, #393E46);
-    border-radius: 20px;
-    padding: 50px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+/* Контейнер для рулетки */
+.roulette-container {
     width: 100%;
-    max-width: 700px;
-    height: 350px; /* Фиксированная высота для рамки */
+    margin: 20px auto;
+    border: 4px solid #00aaff;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 200px;
+    background-color: light black;
+    box-shadow: 0 0 30px rgba(0, 150, 200, 1);
+    position: relative;
+}
+
+/* Полоса рулетки */
+.roulette {
     display: flex;
     flex-direction: column;
+    transition: transform ease-out;
+    position: absolute;
+    width: 100%;
+}
+
+/* Элементы рулетки */
+.roulette-item {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-}
-
-#stars-image {
-    width: 150px; /* Увеличение размера изображения звезд */
-    height: 150px;
-    margin-bottom: 70px;
-    animation: spin 2s ease-in-out infinite; /* Анимация для кручения звезд */
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-#spin-button {
-    padding: 14px 55px;
-    background: linear-gradient(90deg, #007bb5, #00aaff); /* Градиент для кнопки */
-    color: white;
-    border: none;
-    border-radius: 17px;
-    cursor: pointer;
+    padding: 10px;
     font-size: 18px;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    background: linear-gradient(90deg, #f0f8ff, #d9f0ff);
+    height: 50px; /* Высота каждого элемента */
+}
+
+/* Иконка звезды справа */
+.roulette-item img {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
+
+/* Кнопка кручения */
+.spin-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: white;
+    background: linear-gradient(90deg, #00aaff, #0088cc);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 0 20px rgba(0, 150, 200, 1);
 }
 
-#spin-button:hover {
-    background-color: #006fa0;
-    box-shadow: 0 0 35px rgba(0, 150, 200, 0.8);
-    transform: translateY(-2px); /* Тень при наведении */
+.spin-button:hover {
+    background: linear-gradient(90deg, #007bb5, #006fa0);
+    box-shadow: 0 6px 15px rgba(0, 150, 200, 0.6);
+    transform: translateY(-5px);
+}
+
+.spin-button:active {
+    transform: translateY(2px) scale(0.95);
+}
+
+/* Текст под рулеткой */
+.bank-text {
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    margin-top: 10px;
 }
 
 /* Нижняя навигация */
 footer {
-    background: linear-gradient(135deg, #222831, #393E46); /* Легкий градиент */
+    background: linear-gradient(135deg, #222831, #393E46);
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
     padding: 20px 0;
-    position: fixed;
-    bottom: 20px; /* Поднимаем footer на 20px выше от края */
-    width: 90%; /* Немного уменьшаем ширину, чтобы не доходил до края экрана */
-    left: 5%; /* Центрируем footer */
-    border-radius: 20px; /* Закругляем края для более мягкого эффекта */
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    margin-top: 120px;
 }
-
 
 nav ul {
     display: flex;
     justify-content: space-around;
     list-style: none;
-    padding: 0 120px;
+    padding: 0;
 }
 
 nav li a {
@@ -176,27 +197,27 @@ nav li a {
     align-items: center;
     justify-content: center;
     padding: 10px;
-    background: linear-gradient(90deg, #00aaff, #0088cc); /* Градиент голубого цвета */
+    background: linear-gradient(90deg, #00aaff, #0088cc);
     color: white;
     text-decoration: none;
     font-size: 16px;
     border-radius: 17px;
-    width: 140px;
+    width: 100px;
     transition: background 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 0 20px rgba(0, 150, 200, 1); /* первое свечение */
+    box-shadow: 0 0 20px rgba(0, 150, 200, 1);
 }
 
 nav li a:hover {
     background: linear-gradient(90deg, #007bb5, #006fa0);
-    box-shadow: 0 0 25px rgba(0, 150, 200, 0.8), /* Более интенсивное свечение */
-                0 0 50px rgba(0, 150, 200, 0.6), /* Расширенное свечение */
-                0 0 75px rgba(0, 150, 200, 0.4); /* Рассеянное, большое свечение */
-    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(0, 150, 200, 0.8),
+                0 0 50px rgba(0, 150, 200, 0.6),
+                0 0 75px rgba(0, 150, 200, 0.4);
+    transform: translateY(-5px);
 }
 
 nav li a:active {
-    transform: translateY(2px) scale(0.95); /* Легкое опускание и уменьшение размера при нажатии */
-    box-shadow: 0 0 20px rgba(0, 150, 200, 0.5); /* Немного уменьшить свечение */
+    transform: translateY(2px) scale(0.95);
+    box-shadow: 0 0 20px rgba(0, 150, 200, 0.5);
 }
 
 nav li a img {
@@ -205,24 +226,37 @@ nav li a img {
     margin-bottom: 5px;
 }
 
-
 /* Адаптивность */
 @media (max-width: 600px) {
     nav li a {
         font-size: 14px;
-        width: 90px;
-    }
-    nav ul {
-        padding: 0 60px;
+        width: 80px;
     }
 
-    main {
-        padding: 50px;
-        bottom: -100px;
+    nav ul {
+        padding: 0 50px;
     }
 
     nav li a img {
         width: 24px;
         height: 24px;
+    }
+
+    .roulette-container {
+        width: 95%;
+        height: 180px;
+    }
+
+    .roulette-item {
+        font-size: 14px;
+    }
+
+    .spin-button {
+        font-size: 14px;
+        padding: 7px 10px;
+    }
+
+    .bank-text {
+        font-size: 14px;
     }
 }
