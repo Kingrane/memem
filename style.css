@@ -208,11 +208,15 @@ nav li a img {
 @media (max-width: 600px) {
     nav li a {
         font-size: 14px;
-        width: 140px;
+        width: 70px;
     }
+    nav ul {
+        padding: 0 60px;
+    }
+    
 
     roulette {
-        width: 100px;
+        width: 200px;
     }
 
     nav li a img {
