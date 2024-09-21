@@ -5,11 +5,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: 'comic sans ms', sans-serif;
 }
 
 body {
-    background: linear-gradient(135deg, #f0f8ff, #d9f0ff); /* легкий градиент фона */
+    background: linear-gradient(135deg, #1A1A1D, #313131); /* легкий градиент фона */
     color: #2c3e50;
     display: flex;
     flex-direction: column;
@@ -26,7 +26,7 @@ body {
 
 /* Стили для header */
 header {
-    background: linear-gradient(90deg, #d9f0ff, #f0f8ff); /* Легкий градиент фона */
+    background: linear-gradient(135deg, #222831, #393E46); /* Легкий градиент фона */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 15px;
     position: fixed;
@@ -36,6 +36,7 @@ header {
     align-items: center;
     justify-content: space-between;
     z-index: 1000; /* Чтобы шапка была поверх всего */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
 .header-content {
@@ -52,6 +53,7 @@ header {
     margin-right: 10px;
 }
 
+
 .header-text {
     flex-grow: 1;
 }
@@ -59,7 +61,7 @@ header {
 .header-text h1 {
     margin: 0;
     font-size: 20px;
-    color: #333;
+    color: white;
 }
 
 .header-text p {
@@ -74,7 +76,7 @@ header {
     color: white;
     border: none;
     padding: 10px 20px;
-    border-radius: 20px;
+    border-radius: 17px;
     font-size: 16px;
     cursor: pointer;
     transition: background 0.3s ease, box-shadow 0.3s ease;
@@ -99,10 +101,10 @@ main {
 
 /* Рамка для рулетки */
 .roulette {
-    background-color: white;
+    background: linear-gradient(135deg, #222831, #393E46);
     border-radius: 20px;
     padding: 50px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
     width: 100%;
     max-width: 700px;
     height: 350px; /* Фиксированная высота для рамки */
@@ -117,8 +119,8 @@ main {
 #stars-image {
     width: 150px; /* Увеличение размера изображения звезд */
     height: 150px;
-    margin-bottom: 20px;
-    animation: spin 5s ease-in-out infinite; /* Анимация для кручения звезд */
+    margin-bottom: 70px;
+    animation: spin 2s ease-in-out infinite; /* Анимация для кручения звезд */
 }
 
 @keyframes spin {
@@ -135,7 +137,7 @@ main {
     background: linear-gradient(90deg, #007bb5, #00aaff); /* Градиент для кнопки */
     color: white;
     border: none;
-    border-radius: 15px;
+    border-radius: 17px;
     cursor: pointer;
     font-size: 18px;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
@@ -150,8 +152,8 @@ main {
 
 /* Нижняя навигация */
 footer {
-    background: linear-gradient(90deg, #f5fafc, #ebebeb); /* Легкий градиент */
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(135deg, #222831, #393E46); /* Легкий градиент */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
     padding: 20px 0;
     position: fixed;
     bottom: 20px; /* Поднимаем footer на 20px выше от края */
@@ -178,7 +180,7 @@ nav li a {
     color: white;
     text-decoration: none;
     font-size: 16px;
-    border-radius: 20px;
+    border-radius: 17px;
     width: 140px;
     transition: background 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 0 20px rgba(0, 150, 200, 1); /* первое свечение */
@@ -208,15 +210,15 @@ nav li a img {
 @media (max-width: 600px) {
     nav li a {
         font-size: 14px;
-        width: 70px;
+        width: 90px;
     }
     nav ul {
         padding: 0 60px;
     }
-    
 
-    roulette {
-        width: 200px;
+    main {
+        padding: 50px;
+        bottom: -100px;
     }
 
     nav li a img {
@@ -224,4 +226,3 @@ nav li a img {
         height: 24px;
     }
 }
-
