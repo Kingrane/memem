@@ -26,7 +26,7 @@ smoothScrollBackground();
 document.getElementById('upload-form').addEventListener('submit', function(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
-    fetch('/upload', {
+    fetch('https://your-external-server.com/upload', { // Замените на URL вашего внешнего сервера
         method: 'POST',
         body: formData
     })
