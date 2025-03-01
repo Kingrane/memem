@@ -1,262 +1,139 @@
-/* Общие стили */
-* {
+body {
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'comic sans ms', sans-serif;
+    background: linear-gradient(180deg, #f0f0f0, #ffffff);
+    background-attachment: fixed;
 }
 
-body {
-    background: linear-gradient(135deg, #1A1A1D, #313131);
-    color: #2c3e50;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 0 20px;
-}
-
-/* Стили для header */
-header {
-    background: linear-gradient(135deg, #222831, #393E46);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    width: 500px; /* Полная ширина */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    position: fixed; /* Закрепляем хедер */
-    top: 15px; /* Отступ сверху */
-    z-index: 1000; /* Чтобы хедер был поверх всего */
-}
-
-/* Контейнер для всего */
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; /* Центрируем содержимое */
-    width: 100%; /* Полная ширина */
-    max-width: 500px; /* Ограничиваем ширину */
-    margin-top: 80px; /* Отступ сверху для центрального расположения */
-}
-
-
-.header-content {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: space-between;
-}
-
-.avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-.header-text {
-    flex-grow: 1;
-}
-
-.header-text h1 {
-    margin: 0;
-    font-size: 20px;
-    color: white;
-}
-
-.header-text p {
-    margin: 0;
-    font-size: 14px;
-    color: #666;
-}
-
-/* Кнопка лидеров */
-#leaderboard-btn {
-    background: linear-gradient(90deg, #00aaff, #0088cc);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 17px;
-    font-size: 16px;
-    cursor: pointer;
-    box-shadow: 0 0 20px rgba(0, 150, 200, 1);
-    transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-
-#leaderboard-btn:hover {
-    background: linear-gradient(90deg, #007bb5, #006fa0);
-    box-shadow: 0 4px 15px rgba(0, 150, 200, 0.5);
-    transform: translateY(-5px);
-}
-
-#leaderboard-btn:active {
-    transform: translateY(2px) scale(0.95);
-}
-
-/* Контейнер для рулетки */
-.roulette-container {
-    width: 100%;
-    margin: 20px auto;
-    border: 4px solid #00aaff;
-    border-radius: 10px;
-    overflow: hidden;
-    height: 200px;
-    background-color: light black;
-    box-shadow: 0 0 30px rgba(0, 150, 200, 1);
-    position: relative;
-}
-
-/* Полоса рулетки */
-.roulette {
-    display: flex;
-    flex-direction: column;
-    transition: transform ease-out;
-    position: absolute;
-    width: 100%;
-}
-
-/* Элементы рулетки */
-.roulette-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    font-size: 18px;
-    color: #333;
-    border-bottom: 1px solid #ddd;
-    background: linear-gradient(90deg, #f0f8ff, #d9f0ff);
-    height: 50px; /* Высота каждого элемента */
-}
-
-/* Иконка звезды справа */
-.roulette-item img {
-    width: 20px;
-    height: 20px;
-    margin-left: 10px;
-}
-
-/* Кнопка кручения */
-.spin-button {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    font-size: 18px;
-    color: white;
-    background: linear-gradient(90deg, #00aaff, #0088cc);
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 0 20px rgba(0, 150, 200, 1);
-}
-
-.spin-button:hover {
-    background: linear-gradient(90deg, #007bb5, #006fa0);
-    box-shadow: 0 6px 15px rgba(0, 150, 200, 0.6);
-    transform: translateY(-5px);
-}
-
-.spin-button:active {
-    transform: translateY(2px) scale(0.95);
-}
-
-/* Текст под рулеткой */
-.bank-text {
+.header {
     text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+.project-name {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.team-name {
     font-size: 16px;
-    color: white;
-    margin-top: 10px;
 }
 
-/* Нижняя навигация */
-footer {
-    background: linear-gradient(135deg, #222831, #393E46);
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-    padding: 20px 0;
-    width: 100%;
-    max-width: 500px;
-    border-radius: 20px;
-    margin-top: 120px;
+.welcome-section {
+    text-align: center;
+    padding: 50px 20px;
 }
 
-nav ul {
+.welcome-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.welcome-subtitle {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.start-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.content-sections-container {
     display: flex;
     justify-content: space-around;
-    list-style: none;
-    padding: 0;
+    flex-wrap: wrap;
+    padding: 20px;
 }
 
-nav li a {
+.content-section {
+    flex: 1;
+    max-width: 300px;
+    margin: 10px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.content-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.content-image {
+    height: 200px;
+    background-color: #f0f0f0;
+    margin-bottom: 10px;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 10px;
-    background: linear-gradient(90deg, #00aaff, #0088cc);
-    color: white;
-    text-decoration: none;
+}
+
+.content-description {
     font-size: 16px;
-    border-radius: 17px;
+}
+
+.upload-section {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.upload-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.upload-zone {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.upload-zone input[type="file"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.upload-icon {
     width: 100px;
-    transition: background 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 0 20px rgba(0, 150, 200, 1);
+    height: 100px;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
 }
 
-nav li a:hover {
-    background: linear-gradient(90deg, #007bb5, #006fa0);
-    box-shadow: 0 0 25px rgba(0, 150, 200, 0.8),
-                0 0 50px rgba(0, 150, 200, 0.6),
-                0 0 75px rgba(0, 150, 200, 0.4);
-    transform: translateY(-5px);
+.upload-text {
+    font-size: 16px;
 }
 
-nav li a:active {
-    transform: translateY(2px) scale(0.95);
-    box-shadow: 0 0 20px rgba(0, 150, 200, 0.5);
+.analysis-output {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
 }
 
-nav li a img {
-    width: 28px;
-    height: 28px;
-    margin-bottom: 5px;
-}
-
-/* Адаптивность */
-@media (max-width: 600px) {
-    nav li a {
-        font-size: 14px;
-        width: 80px;
-    }
-
-    nav ul {
-        padding: 0 50px;
-    }
-
-    nav li a img {
-        width: 24px;
-        height: 24px;
-    }
-
-    .roulette-container {
-        width: 95%;
-        height: 180px;
-    }
-
-    .roulette-item {
-        font-size: 14px;
-    }
-
-    .spin-button {
-        font-size: 14px;
-        padding: 7px 10px;
-    }
-
-    .bank-text {
-        font-size: 14px;
-    }
+.analysis-message {
+    font-size: 16px;
 }
