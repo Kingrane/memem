@@ -1,28 +1,40 @@
-// script.js
+// Переменные для плавного скролла
+let currentScroll = 0;
+let targetScroll = 0;
+const smoothness = 0.1; // Коэффициент плавности (меньше = плавнее)
 
-const spinButton = document.getElementById('spin-button');
-const roulette = document.querySelector('.roulette');
-const items = document.querySelectorAll('.roulette-item');
+// Функция для плавного скролла фона
+function smoothScrollBackground() {
+    // Получаем текущий процент скролла
+    targetScroll = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
 
-// Функция для генерации случайного числа в диапазоне
-function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    // Плавно приближаем текущее значение к целевому
+    currentScroll += (targetScroll - currentScroll) * smoothness;
+
+    // Обновляем позицию фона
+    const yPosition = currentScroll * 40;
+    document.body.style.backgroundPositionY = `${yPosition}%`;
+
+    // Продолжаем анимацию
+    requestAnimationFrame(smoothScrollBackground);
 }
 
-// Функция для кручения рулетки
-function spinRoulette() {
-    const itemHeight = items[0].offsetHeight; // Высота одного элемента
-    const totalItems = items.length; // Общее количество элементов
-    const randomIndex = getRandomInt(0, totalItems - 1); // Случайный индекс
-    const spinTime = getRandomInt(1, 3) * 1000; // Случайное время кручения (от 5 до 8 секунд)
+// Запускаем анимацию
+smoothScrollBackground();
 
-    // Рассчитываем высоту на которую нужно прокрутить рулетку
-    const offset = randomIndex * itemHeight;
-
-    // Применяем анимацию вращения
-    roulette.style.transition = `transform ${spinTime / 1000}s ease-out`; // Плавная остановка
-    roulette.style.transform = `translateY(-${offset}px)`; // Перемещение на случайный элемент
-}
-
-// Обработчик события для кнопки
-spinButton.addEventListener('click', spinRoulette);
+// Обработка загрузки и анализа изображения
+document.getElementById('upload-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    fetch('/upload', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('analysis-output').innerText = JSON.stringify(data, null, 2);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
